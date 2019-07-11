@@ -1,10 +1,10 @@
 namespace DC 
 {
-    public class UnionFind 
+    public class QuickFindUF 
     {
         private int[] _bucket;
 
-        public UnionFind(int size)
+        public QuickFindUF(int size)
         {
             _bucket = new int[size];
             for (int i = 0; i < size; i++)
@@ -16,12 +16,13 @@ namespace DC
         public void Union(int p, int q)
         {
             var pIndex = _bucket[p];
+            var qIndex  = _bucket[q];
             
             for (int i = 0; i < _bucket.Length; i++)
             {
                 if(_bucket[i] == pIndex)
                 {
-                    _bucket[i] = _bucket[q];
+                    _bucket[i] = qIndex;
                 }
             }
         }
