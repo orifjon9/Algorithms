@@ -6,7 +6,7 @@ namespace DC
     {
         public static void Run()
         {
-            var uf = new UnionFind(10);
+            var uf = new QuickFindUF(10);
             uf.Union(1, 2);
             uf.Union(2, 7);
             uf.Union(3, 8);

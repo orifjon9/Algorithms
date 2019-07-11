@@ -1,6 +1,8 @@
 ## Dynamic Connectivity
 
-### Union-Find
+## Union-Find
+
+### QuickFind
 
 #### Given a set of N elements
 - Union: connect two elements
@@ -21,3 +23,13 @@ Components: { { 0, 1, 2, 7 } { 5 } { 6 } { 3, 4, 9 } { 8 } }
 - Connected(0, 9) is false
 - Connected(3, 4) is true
 - Connected(5, 6) is false
+
+
+|Algorithms	       |   Initialize	|   Union    |   Find      |
+|:-----------------|:---------------|:-----------|:------------|
+|Quick-Find        |  N             |   N	     |   1         |
+|Quick-Union       |  N             |   N t	     |   N         | 
+
+
+
+t - includescost of finding root
