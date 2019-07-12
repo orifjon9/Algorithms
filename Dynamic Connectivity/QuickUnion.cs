@@ -1,4 +1,4 @@
-namespace DS
+namespace DC
 {
     public class QuickUnion
     {
