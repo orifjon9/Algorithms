@@ -25,10 +25,18 @@ Components: { { 0, 1, 2, 7 } { 5 } { 6 } { 3, 4, 9 } { 8 } }
 - Connected(5, 6) is false
 
 
+### QuickUnion
+
+
+
+### Weighted-QuickFind
+
+
 |Algorithms	       |   Initialize	|   Union    |   Find      |
 |:-----------------|:---------------|:-----------|:------------|
 |Quick-Find        |  N             |   N	     |   1         |
 |Quick-Union       |  N             |   N t	     |   N         | 
+|Weighted QU       |  N             |   Lg(N t)	 |   Lg(N)     | 
 
 
 
