@@ -17,7 +17,10 @@ namespace Algorithms
             //var shellSort = Sort.ShellSort.Sort(new string[] { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E"});
             //Console.WriteLine(String.Join(',', shellSort));
 
-            var merge = Sort.MergeSort.Sort(new string[] { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" });
+            //var merge = Sort.MergeSort.Sort(new string[] { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" });
+            //Console.WriteLine(String.Join(',', merge));
+
+            var merge = Sort.MergeSortBottomUp.Sort(new string[] { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" });
             Console.WriteLine(String.Join(',', merge));
         }
     }
