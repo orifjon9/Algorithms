@@ -23,8 +23,11 @@ namespace Algorithms
             //var merge = Sort.MergeSortBottomUp.Sort(new string[] { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" });
             //Console.WriteLine(String.Join(',', merge));
 
-            var shuffledArray = Sort.Shuffle.Run(new string[] { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" });
-            Console.WriteLine(String.Join(',', shuffledArray));
+            //var shuffledArray = Sort.Shuffle.Run(new string[] { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" });
+            //Console.WriteLine(String.Join(',', shuffledArray));
+
+            var sortedArray = Sort.QuickSort.Sort(new string[] { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" });
+            Console.WriteLine(String.Join(',', sortedArray));
         }
     }
 }
