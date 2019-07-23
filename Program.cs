@@ -28,6 +28,10 @@ namespace Algorithms
 
             var sortedArray = Sort.QuickSort.Sort(new string[] { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" });
             Console.WriteLine(String.Join(',', sortedArray));
+
+            Console.WriteLine(Sort.QuickSelect.Find(new string[] { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" }, 6));
+            //Console.WriteLine(Sort.QuickSelect.Find(new string[] { "X","M","R","S","O","E","T","P","L","A","E" }, 6));
+        
         }
     }
 }
