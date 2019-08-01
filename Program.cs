@@ -47,6 +47,45 @@ namespace Algorithms
             Console.WriteLine(bh.Print());
             Console.WriteLine(bh.DeleteMax());
             Console.WriteLine(bh.Print());
+
+            var bst = new DS.BST<string, int>();
+            bst.Put("M", 3);
+            bst.Put("Y", 5);
+            bst.Put("S", 1);
+            bst.Put("T", 8);
+            bst.Put("R", 9);
+            bst.Put("I", 2);
+            bst.Put("N", 7);
+            bst.Put("G", 4);
+            bst.Put("X", 3);
+
+            if(bst.TryGetValue("I", out int value))
+            {
+                Console.WriteLine(value);
+            }
+
+            if(bst.TryGetValue("J", out value))
+            {
+                Console.WriteLine(value);
+            }
+
+            bst.Put("J", 11);
+            bst.Put("I", 10);
+
+            if(bst.TryGetValue("I", out value))
+            {
+                Console.WriteLine(value);
+            }
+
+            if(bst.TryGetValue("J", out value))
+            {
+                Console.WriteLine(value);
+            }
+
+            bst.Print();
+            Console.WriteLine();
+            Console.WriteLine(bst.Min());
+            Console.WriteLine(bst.Max());
         }
     }
 }
