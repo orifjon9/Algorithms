@@ -86,6 +86,12 @@ namespace Algorithms
             Console.WriteLine();
             Console.WriteLine(bst.Min());
             Console.WriteLine(bst.Max());
+            bst.Remove("S");
+            bst.Print();
+            bst.Remove("T");
+            bst.Print();
+            bst.Remove("Y");
+            bst.Print();
         }
     }
 }

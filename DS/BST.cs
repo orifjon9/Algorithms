@@ -58,6 +58,11 @@ namespace DS
             throw new Exception("BST is empty");
         }
 
+        public void Remove(TKey key) {
+           _root = Remove(_root, key);
+           _root.Size = Size(_root);
+        }
+
         public void Print()
         {
             Console.WriteLine();
@@ -71,7 +76,8 @@ namespace DS
                 return new Node
                 {
                     Key = key,
-                    Value = value
+                    Value = value,
+                    Size = 1
                 };
             }
 
@@ -89,15 +95,63 @@ namespace DS
                 node.Value = value;
             }
 
+            node.Size = 1 + (node.Left?.Size ?? 0) + (node.Right?.Size ?? 0);
+
             return node;
         }
+
+        private Node Remove(Node node, TKey key)
+        {
+            if (node != null)
+            {
+                var comp = key.CompareTo(node.Key);
+                if (comp < 0)
+                {
+                    node.Left = Remove(node.Left, key);
+                }
+                else if (comp > 0)
+                {
+                    node.Right = Remove(node.Right, key);
+                }
+                else
+                {
+                    if (node.Left == null && node.Right == null)
+                    {
+                        return null;
+                    }
+                    else if (node.Right == null)
+                    {
+                        var newNode = node.Left;
+                        newNode.Size = Size(newNode);
+                        return newNode;
+                    }
+                    else if (node.Left == null)
+                    {
+                        var newNode = node.Right;
+                        newNode.Size = Size(newNode);
+                        return newNode;
+                    }
+
+                    var minNodeOnRight = Min(node.Right);
+                    node.Key = minNodeOnRight.Key;
+                    node.Value = minNodeOnRight.Value;
+                    node.Right = Remove(node.Right, minNodeOnRight.Key);
+                }
+
+                node.Size = Size(node);
+            }
+
+            return node;
+        }
+
+        private int Size(Node node) => 1 + (node.Left?.Size ?? 0) + (node.Right?.Size ?? 0);
 
         private void InOrder(Node node)
         {
             if (node == null) return;
 
             InOrder(node.Left);
-            Console.Write($"[{node.Key}, {node.Value}] ");
+            Console.Write($"[{node.Key}, {node.Value}, {node.Size}] ");
             InOrder(node.Right);
         }
 
