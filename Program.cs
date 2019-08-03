@@ -34,7 +34,7 @@ namespace Algorithms
 
             //var sortedArray = Sort.Dijkstra3way.Sort(new string[] { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" });
             //Console.WriteLine(String.Join(',', sortedArray));
-        
+
             var bh = new DS.BinaryHeap<char>(12);
             bh.Insert('M');
             bh.Insert('Y');
@@ -59,30 +59,30 @@ namespace Algorithms
             bst.Put("G", 4);
             bst.Put("X", 3);
 
-             if(bst.TryGetValue("I", out int value))
+            if (bst.TryGetValue("I", out int value))
             {
                 Console.WriteLine(value);
             }
 
-             if(bst.TryGetValue("J", out value))
+            if (bst.TryGetValue("J", out value))
             {
                 Console.WriteLine(value);
             }
 
-             bst.Put("J", 11);
+            bst.Put("J", 11);
             bst.Put("I", 10);
 
-             if(bst.TryGetValue("I", out value))
+            if (bst.TryGetValue("I", out value))
             {
                 Console.WriteLine(value);
             }
 
-             if(bst.TryGetValue("J", out value))
+            if (bst.TryGetValue("J", out value))
             {
                 Console.WriteLine(value);
             }
 
-             bst.Print();
+            bst.Print();
             Console.WriteLine();
             Console.WriteLine(bst.Min());
             Console.WriteLine(bst.Max());

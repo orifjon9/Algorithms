@@ -1,20 +1,20 @@
 using System;
 
- namespace DS
+namespace DS
 {
     public class BST<TKey, TValue>
         where TKey : IComparable
     {
         private Node _root = null;
 
-         public void Put(TKey key, TValue value)
-            => _root = Put(_root, key, value);
+        public void Put(TKey key, TValue value)
+           => _root = Put(_root, key, value);
 
-         public bool TryGetValue(TKey key, out TValue value)
+        public bool TryGetValue(TKey key, out TValue value)
         {
             var node = _root;
 
-             while (node != null)
+            while (node != null)
             {
                 var comp = key.CompareTo(node.Key);
                 if (comp < 0)
@@ -32,11 +32,11 @@ using System;
                 }
             }
 
-             value = default(TValue);
+            value = default(TValue);
             return false;
         }
 
-         public TKey Max()
+        public TKey Max()
         {
             var maxNode = Max(_root);
             if (maxNode != null)
@@ -44,10 +44,10 @@ using System;
                 return maxNode.Key;
             }
 
-             throw new Exception("BST is empty");
+            throw new Exception("BST is empty");
         }
 
-         public TKey Min()
+        public TKey Min()
         {
             var minNode = Min(_root);
             if (minNode != null)
@@ -55,21 +55,22 @@ using System;
                 return minNode.Key;
             }
 
-             throw new Exception("BST is empty");
+            throw new Exception("BST is empty");
         }
 
-         public void Remove(TKey key) {
-           _root = Remove(_root, key);
-           _root.Size = Size(_root);
+        public void Remove(TKey key)
+        {
+            _root = Remove(_root, key);
+            _root.Size = Size(_root);
         }
 
-         public void Print()
+        public void Print()
         {
             Console.WriteLine();
             InOrder(_root);
         }
 
-         private Node Put(Node node, TKey key, TValue value)
+        private Node Put(Node node, TKey key, TValue value)
         {
             if (node == null)
             {
@@ -81,7 +82,7 @@ using System;
                 };
             }
 
-             var comp = key.CompareTo(node.Key);
+            var comp = key.CompareTo(node.Key);
             if (comp < 0)
             {
                 node.Left = Put(node.Left, key, value);
@@ -95,12 +96,12 @@ using System;
                 node.Value = value;
             }
 
-             node.Size = 1 + (node.Left?.Size ?? 0) + (node.Right?.Size ?? 0);
+            node.Size = 1 + (node.Left?.Size ?? 0) + (node.Right?.Size ?? 0);
 
-             return node;
+            return node;
         }
 
-         private Node Remove(Node node, TKey key)
+        private Node Remove(Node node, TKey key)
         {
             if (node != null)
             {
@@ -132,47 +133,47 @@ using System;
                         return newNode;
                     }
 
-                     var minNodeOnRight = Min(node.Right);
+                    var minNodeOnRight = Min(node.Right);
                     node.Key = minNodeOnRight.Key;
                     node.Value = minNodeOnRight.Value;
                     node.Right = Remove(node.Right, minNodeOnRight.Key);
                 }
 
-                 node.Size = Size(node);
+                node.Size = Size(node);
             }
 
-             return node;
+            return node;
         }
 
-         private int Size(Node node) => 1 + (node.Left?.Size ?? 0) + (node.Right?.Size ?? 0);
+        private int Size(Node node) => 1 + (node.Left?.Size ?? 0) + (node.Right?.Size ?? 0);
 
-         private void InOrder(Node node)
+        private void InOrder(Node node)
         {
             if (node == null) return;
 
-             InOrder(node.Left);
+            InOrder(node.Left);
             Console.Write($"[{node.Key}, {node.Value}, {node.Size}] ");
             InOrder(node.Right);
         }
 
-         private Node Min(Node node)
+        private Node Min(Node node)
         {
             while (node.Left != null)
             {
                 node = node.Left;
             }
 
-             return node;
+            return node;
         }
 
-         private Node Max(Node node)
+        private Node Max(Node node)
         {
             while (node.Right != null)
             {
                 node = node.Right;
             }
 
-             return node;
+            return node;
         }
         class Node
         {
@@ -180,8 +181,8 @@ using System;
             public TValue Value { get; set; }
             public int Size { get; set; }
 
-             public Node Left { get; set; } = null;
+            public Node Left { get; set; } = null;
             public Node Right { get; set; } = null;
         }
     }
-} 
+}
