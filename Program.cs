@@ -48,7 +48,8 @@ namespace Algorithms
             Console.WriteLine(bh.DeleteMax());
             Console.WriteLine(bh.Print());
 
-            var bst = new DS.BST<string, int>();
+            //var bst = new DS.BST<string, int>();
+            var bst = new DS.RedBlackTree<string, int>();
             bst.Put("M", 3);
             bst.Put("Y", 5);
             bst.Put("S", 1);
@@ -84,14 +85,14 @@ namespace Algorithms
 
             bst.Print();
             Console.WriteLine();
-            Console.WriteLine(bst.Min());
-            Console.WriteLine(bst.Max());
-            bst.Remove("S");
-            bst.Print();
-            bst.Remove("T");
-            bst.Print();
-            bst.Remove("Y");
-            bst.Print();
+            //Console.WriteLine(bst.Min());
+            // Console.WriteLine(bst.Max());
+            // bst.Remove("S");
+            // bst.Print();
+            // bst.Remove("T");
+            // bst.Print();
+            // bst.Remove("Y");
+            // bst.Print();
         }
     }
 }
