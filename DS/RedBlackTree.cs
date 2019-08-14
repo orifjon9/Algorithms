@@ -36,7 +36,7 @@ namespace DS
             }
 
             if (IsRed(node.Right) && !IsRed(node.Left)) node = RotateLeft(node);
-            if (IsRed(node.Left) && IsRed(node.Left.Left)) node = RotateRight(node);
+            if (IsRed(node.Left) && IsRed(node.Left?.Left)) node = RotateRight(node);
             if (IsRed(node.Left) && IsRed(node.Right)) FlipColors(node);
 
             return node;
@@ -97,8 +97,8 @@ namespace DS
         {
             var rightChild = parent.Right;
             parent.Right = rightChild.Left;
-            parent.IsRed = true;
             rightChild.IsRed = parent.IsRed;
+            parent.IsRed = true;
             rightChild.Left = parent;
 
             return rightChild;
@@ -109,8 +109,8 @@ namespace DS
             var leftChild = parent.Left;
             parent.Left = leftChild.Right;
             leftChild.Right = parent;
-            parent.IsRed = true;
             leftChild.IsRed = parent.IsRed;
+            parent.IsRed = true;
 
             return leftChild;
         }
@@ -126,7 +126,7 @@ namespace DS
         {
             public TKey Key { get; set; }
             public TValue Value { get; set; }
-            public bool IsRed { get; set; }
+            public bool IsRed { get; set; } = true;
 
             public Node(TKey key, TValue value)
             {
