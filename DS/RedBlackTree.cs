@@ -10,6 +10,10 @@ namespace DS
         public void Put(TKey key, TValue value)
         {
             _root = Put(_root, key, value);
+            if(_root.IsRed)
+            {
+                _root.IsRed = false;
+            }
         }
 
         private Node Put(Node node, TKey key, TValue value)
@@ -76,7 +80,55 @@ namespace DS
 
         public void Remove(TKey key)
         {
-            //TODO: Implementation here
+            _root = Remove(_root, key);
+        }
+
+        private Node Remove(Node node, TKey key)
+        {
+            if(node != null)
+            {
+                var comp = key.CompareTo(node.Key);
+                if(comp < 0)
+                {
+                    node.Left = Remove(node.Left, key);
+                }
+                else if(comp > 0)
+                {
+                    node.Right = Remove(node.Right, key);
+                }
+                else 
+                {
+                    if(node.Right == null && node.Left == null)
+                    {
+                        return null;
+                    }
+                    else if(node.Left == null)
+                    {
+                        return node.Right;
+                    }
+                    else if(node.Right == null)
+                    {
+                        return node.Left;
+                    }
+                    else 
+                    {
+                        var minNode = Min(node.Right);
+                        minNode.Right = Remove(node.Right, minNode.Key);
+                        return minNode;
+                    }
+                }
+            }
+        }
+
+        private Node Min(Node node)
+        {
+            var min = node;
+            while(min.Left != null)
+            {
+                min = min.Left;
+            }
+
+            return min;
         }
 
         public void Print()
