@@ -118,6 +118,8 @@ namespace DS
                     }
                 }
             }
+
+            return node;
         }
 
         private Node Min(Node node)
