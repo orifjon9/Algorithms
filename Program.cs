@@ -94,16 +94,34 @@ namespace Algorithms
             // bst.Remove("Y");
             // bst.Print();
 
-            var avl = new DS.AVLTree<int, int>();
-            avl.Put(13, 0);
-            avl.Put(10, 0);
-            avl.Put(15, 0);
-            avl.Put(16, 0);
-            avl.Put(11, 0);
-            avl.Put(5, 0);
-            avl.Put(4, 0);
-            avl.Put(8, 0);
-            avl.Put(9, 0);
+            // var avl = new DS.AVLTree<int, int>();
+            // avl.Put(13, 0);
+            // avl.Put(10, 0);
+            // avl.Put(15, 0);
+            // avl.Put(16, 0);
+            // avl.Put(11, 0);
+            // avl.Put(5, 0);
+            // avl.Put(4, 0);
+            // avl.Put(8, 0);
+            // avl.Put(9, 0);
+
+
+            var g = new Graph.Graph(7);
+            g.AddEdge(0, 1);
+            g.AddEdge(0, 2);
+            g.AddEdge(0, 6);
+            g.AddEdge(0, 5);
+            g.AddEdge(6, 4);
+            g.AddEdge(4, 5);
+            g.AddEdge(4, 3);
+            g.AddEdge(5, 0);
+            g.AddEdge(5, 3);
+
+            var dsf = new Graph.DepthFirstSearch(g, 0);
+
+            Console.WriteLine(dsf.GetPath(5));
+            Console.WriteLine(dsf.GetPath(2));
+
         }
     }
 }
