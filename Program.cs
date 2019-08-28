@@ -122,6 +122,10 @@ namespace Algorithms
             Console.WriteLine(dsf.GetPath(5));
             Console.WriteLine(dsf.GetPath(2));
 
+
+            var bsf = new Graph.BFS(g, 0);
+            Console.WriteLine(bsf.GetPath(3));
+            Console.WriteLine(bsf.GetPath(2));
         }
     }
 }
