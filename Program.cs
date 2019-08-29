@@ -106,7 +106,7 @@ namespace Algorithms
             // avl.Put(9, 0);
 
 
-            var g = new Graph.Graph(7);
+            var g = new Graph.Graph(13);
             g.AddEdge(0, 1);
             g.AddEdge(0, 2);
             g.AddEdge(0, 6);
@@ -117,6 +117,13 @@ namespace Algorithms
             g.AddEdge(5, 0);
             g.AddEdge(5, 3);
 
+            g.AddEdge(8, 7);
+
+            g.AddEdge(9, 10);
+            g.AddEdge(9, 11);
+            g.AddEdge(9, 12);
+            g.AddEdge(11, 12);
+
             var dsf = new Graph.DepthFirstSearch(g, 0);
 
             Console.WriteLine(dsf.GetPath(5));
@@ -126,6 +133,8 @@ namespace Algorithms
             var bsf = new Graph.BFS(g, 0);
             Console.WriteLine(bsf.GetPath(3));
             Console.WriteLine(bsf.GetPath(2));
+
+            var cc = new Graph.ConnectedComponent(g);
         }
     }
 }
