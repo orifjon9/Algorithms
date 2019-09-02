@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Graph
 {
-    public class Digraph
+    public class Digraph : IGraph
     {
         private readonly int _vertices;
         private List<int>[] _edgeAdj;
@@ -27,7 +27,8 @@ namespace Graph
 
         public List<int> Adjacent(int v) => _edgeAdj[v];
 
-        public int AdgesCount() => _adgesCount;
-        public int VerticesCount() => _vertices;
+        public int NumberOfVertices() => _adgesCount;
+
+        public int NumberOfEdges() => _vertices;
     }
 }

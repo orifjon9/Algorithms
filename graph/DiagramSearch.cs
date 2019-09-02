@@ -6,7 +6,7 @@ namespace Graph
         private bool[] _marked;
         public DiagramSearch(Digraph digraph, int startIndex)
         {
-            var size = digraph.VerticesCount();
+            var size = digraph.NumberOfVertices();
 
             _visitedAdj = new int?[size];
             _marked = new bool[size];
