@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Graph
 {
-    public class Graph
+    public class Graph : IGraph
     {
         private readonly int numberOfVertices;
         private List<int>[] adj;

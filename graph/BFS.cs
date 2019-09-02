@@ -2,13 +2,14 @@ using System.Collections.Generic;
 
 namespace Graph
 {
-    public class BFS
+    public class BFS<TGraph>
+        where TGraph : IGraph
     {
         private int?[] _visited;
         private int[] _cc;
         private Queue<int> _queue = new Queue<int>();
 
-        public BFS(Graph graph, int startIndex)
+        public BFS(TGraph graph, int startIndex)
         {
             var count = graph.NumberOfVertices();
 
@@ -21,7 +22,7 @@ namespace Graph
             Init(graph);
         }
 
-        private void Init(Graph graph)
+        private void Init(TGraph graph)
         {
             var count = 0;
             while(true)
