@@ -27,8 +27,8 @@ namespace Graph
 
         public List<int> Adjacent(int v) => _edgeAdj[v];
 
-        public int NumberOfVertices() => _adgesCount;
+        public int NumberOfVertices() => _vertices;
 
-        public int NumberOfEdges() => _vertices;
+        public int NumberOfEdges() => _adgesCount;
     }
 }
