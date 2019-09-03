@@ -136,37 +136,53 @@ namespace Algorithms
 
             // var cc = new Graph.ConnectedComponent(g);
 
-            var digraph = new Graph.Digraph(13);
-            digraph.AddEdge(4, 2);
-            digraph.AddEdge(2,3);
-            digraph.AddEdge(3,2);
-            digraph.AddEdge(6, 0);
-            digraph.AddEdge(0,1);
-            digraph.AddEdge(2, 0);
-            digraph.AddEdge(11, 12);
-            digraph.AddEdge(12, 9);
-            digraph.AddEdge(9, 10);
-            digraph.AddEdge(9, 11);
-            digraph.AddEdge(8, 6);
-            digraph.AddEdge(10,12);
-            digraph.AddEdge(11, 4);
-            digraph.AddEdge(4, 3);
-            digraph.AddEdge(3, 5);
-            digraph.AddEdge(6, 8);
-            digraph.AddEdge(8, 6);
-            digraph.AddEdge(5, 4);
-            digraph.AddEdge(0, 5);
-            digraph.AddEdge(6, 4);
-            digraph.AddEdge(6, 9);
-            digraph.AddEdge(7, 6);
+            // var digraph = new Graph.Digraph(13);
+            // digraph.AddEdge(4, 2);
+            // digraph.AddEdge(2,3);
+            // digraph.AddEdge(3,2);
+            // digraph.AddEdge(6, 0);
+            // digraph.AddEdge(0,1);
+            // digraph.AddEdge(2, 0);
+            // digraph.AddEdge(11, 12);
+            // digraph.AddEdge(12, 9);
+            // digraph.AddEdge(9, 10);
+            // digraph.AddEdge(9, 11);
+            // digraph.AddEdge(8, 6);
+            // digraph.AddEdge(10,12);
+            // digraph.AddEdge(11, 4);
+            // digraph.AddEdge(4, 3);
+            // digraph.AddEdge(3, 5);
+            // digraph.AddEdge(6, 8);
+            // digraph.AddEdge(8, 6);
+            // digraph.AddEdge(5, 4);
+            // digraph.AddEdge(0, 5);
+            // digraph.AddEdge(6, 4);
+            // digraph.AddEdge(6, 9);
+            // digraph.AddEdge(7, 6);
 
-            var ds = new Graph.DiagramSearch(digraph, 0);
-            Console.WriteLine(ds.GetPath(2));
+            // var ds = new Graph.DiagramSearch(digraph, 0);
+            // Console.WriteLine(ds.GetPath(2));
 
-            var ds2 = new Graph.DiagramSearch(digraph, 6);
-            Console.WriteLine(ds2.GetPath(5));
-            Console.WriteLine(ds2.GetPath(3));
-            Console.WriteLine(ds2.GetPath(12));
+            // var ds2 = new Graph.DiagramSearch(digraph, 6);
+            // Console.WriteLine(ds2.GetPath(5));
+            // Console.WriteLine(ds2.GetPath(3));
+            // Console.WriteLine(ds2.GetPath(12));
+
+            var graph = new Graph.Digraph(7);
+            graph.AddEdge(0, 5);
+            graph.AddEdge(0, 2);
+            graph.AddEdge(0, 1);
+            graph.AddEdge(3, 6);
+            graph.AddEdge(3, 5);
+            graph.AddEdge(3, 4);
+            graph.AddEdge(5, 2);
+            graph.AddEdge(6, 4);
+            graph.AddEdge(6, 0);
+            graph.AddEdge(3, 2);
+            graph.AddEdge(1, 4);
+
+            var dfo = new Graph.DepthFirstOrder(graph);
+            Console.WriteLine(string.Join(' ', dfo.Order()));
         }
     }
 }
