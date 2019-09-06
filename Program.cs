@@ -168,21 +168,41 @@ namespace Algorithms
             // Console.WriteLine(ds2.GetPath(3));
             // Console.WriteLine(ds2.GetPath(12));
 
-            var graph = new Graph.Digraph(7);
-            graph.AddEdge(0, 5);
-            graph.AddEdge(0, 2);
-            graph.AddEdge(0, 1);
-            graph.AddEdge(3, 6);
-            graph.AddEdge(3, 5);
-            graph.AddEdge(3, 4);
-            graph.AddEdge(5, 2);
-            graph.AddEdge(6, 4);
-            graph.AddEdge(6, 0);
-            graph.AddEdge(3, 2);
-            graph.AddEdge(1, 4);
+            // var graph = new Graph.Digraph(7);
+            // graph.AddEdge(0, 5);
+            // graph.AddEdge(0, 2);
+            // graph.AddEdge(0, 1);
+            // graph.AddEdge(3, 6);
+            // graph.AddEdge(3, 5);
+            // graph.AddEdge(3, 4);
+            // graph.AddEdge(5, 2);
+            // graph.AddEdge(6, 4);
+            // graph.AddEdge(6, 0);
+            // graph.AddEdge(3, 2);
+            // graph.AddEdge(1, 4);
 
-            var dfo = new Graph.DepthFirstOrder(graph);
-            Console.WriteLine(string.Join(' ', dfo.Order()));
+            // var dfo = new Graph.DepthFirstOrder(graph);
+            // Console.WriteLine(string.Join(' ', dfo.Order()));
+
+            var ewg = new Graph.EdgeWeightedGraph(8);
+            ewg.Add(new Graph.Edge(0, 7, 0.16m));
+            ewg.Add(new Graph.Edge(4, 5, 0.35m));
+            ewg.Add(new Graph.Edge(1, 7, 0.19m));
+            ewg.Add(new Graph.Edge(1, 5, 0.32m));
+            ewg.Add(new Graph.Edge(0, 4, 0.38m));
+            ewg.Add(new Graph.Edge(6, 0, 0.58m));
+            ewg.Add(new Graph.Edge(1, 3, 0.29m));
+            ewg.Add(new Graph.Edge(2, 7, 0.34m));
+            ewg.Add(new Graph.Edge(2, 3, 0.17m));
+            ewg.Add(new Graph.Edge(1, 2, 0.36m));
+            ewg.Add(new Graph.Edge(4, 7, 0.37m));
+            ewg.Add(new Graph.Edge(5, 7, 0.28m));
+            ewg.Add(new Graph.Edge(6, 2, 0.4m));
+            ewg.Add(new Graph.Edge(3, 6, 0.52m));
+            ewg.Add(new Graph.Edge(0, 2, 0.26m));
+            ewg.Add(new Graph.Edge(6, 4, 0.93m));
+
+            var krustkalMST = new Graph.KruskalMST(ewg);
         }
     }
 }
